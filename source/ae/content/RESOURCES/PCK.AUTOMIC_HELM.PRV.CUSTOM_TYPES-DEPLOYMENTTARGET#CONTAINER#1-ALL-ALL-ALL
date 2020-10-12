@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeploymentTargetType>
+  <Name>Container</Name>
+  <Properties>
+    <Group name="staging_local" displayName="Local Staging">
+      <Property name="staging_base_directory" displayName="Staging directory" mode="EDITABLE" type="SingleLineText">
+        <Defaultvalue></Defaultvalue>
+        <Description>Path to a staging staging directory which will be used to transfer and manipulate files to before deployment</Description>
+      </Property>
+    </Group>
+    <Group name="staging_remote" displayName="Remote Staging">
+      <Property name="staging_remote_agent" displayName="Agent" mode="EDITABLE" type="Reference" referenceTo="Agent">
+        <Defaultvalue></Defaultvalue>
+        <Description>Agent which will be used for staging</Description>
+      </Property>
+      <Property name="staging_remote_directory" displayName="Basedirectory" mode="EDITABLE" type="SingleLineText">
+        <Defaultvalue></Defaultvalue>
+        <Description>Base directory on the staging server where package should be downloaded to</Description>
+      </Property>
+      <Property name="NewProperty" mode="EDITABLE" type="Reference" referenceTo="Package"></Property>
+    </Group>
+  </Properties>
+</DeploymentTargetType>

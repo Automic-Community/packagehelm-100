@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_HELM.PUB.INCLUDE.DELETE_VALUE_FILE">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:IF &UC4RB_HELM_DELETE_VALUE_FILE# = "YES"
+:  SET &UC4RB_DELETE_FILE# = ""
+:  SWITCH &$PLATFORM#
+:    CASE "WINDOWS"
+:      SET &UC4RB_DELETE_FILE# = "del &UC4RB_HELM_VALUE_FILE#"
+       &UC4RB_DELETE_FILE#
+:    CASE "UNIX"
+:      SET &UC4RB_DELETE_FILE# = "rm &UC4RB_HELM_VALUE_FILE#"
+       &UC4RB_DELETE_FILE#
+:    OTHER
+:  ENDSWITCH
+:  PRINT "execute command: &UC4RB_DELETE_FILE#"
+:ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ComponentType baseType="TargetBound" traceable="false">
+  <Name>Helm Chart</Name>
+  <DefaultDeploymentTargetType>Kubernetes Cluster</DefaultDeploymentTargetType>
+  <Properties></Properties>
+  <DynamicProperties>
+    <Property name="/flags" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+      <Description></Description>
+      <Value>--name {system/name}</Value>
+    </Property>
+    <Property name="/chart" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+      <Description></Description>
+      <Value></Value>
+    </Property>
+  </DynamicProperties>
+</ComponentType>

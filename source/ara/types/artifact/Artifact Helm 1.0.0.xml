@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ArtifactSourceType>
+  <Name>Helm</Name>
+  <Properties>
+  </Properties>
+  <Description></Description>
+  <Artifact>
+    <Properties>
+    </Properties>
+  </Artifact>
+</ArtifactSourceType>

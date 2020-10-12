@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_HELM.PUB.INCLUDE.BUILD_PARAMETERS">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:IF &UC4RB_HELM_ADDITIONAL_FLAGS# <> ""
+:  SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# &UC4RB_HELM_ADDITIONAL_FLAGS#"
+:ENDIF
+
+:IF &UC4RB_HELM_VALUE_FILE# <> ""
+:  SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# --values &UC4RB_HELM_VALUE_FILE#"
+:ENDIF
+
+:IF &UC4RB_HELM_WAIT_UTIL_DONE# = "YES"
+:  SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# --wait"
+:ENDIF
+
+:IF &UC4RB_HELM_INSTALL_TIMEOUT# <= 0
+:  SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# --timeout 300s"
+:ELSE
+:  SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# --timeout &UC4RB_HELM_INSTALL_TIMEOUT#"
+:  SET &UC4RB_HELM_CMD# = STR_CAT(&UC4RB_HELM_CMD# , "s");
+:ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

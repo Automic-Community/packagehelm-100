@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBS_GENERIC AttrType="GENERIC" name="PCK.AUTOMIC_HELM.PRV.JOB.CHECK_STATUS">
+<XHEADER state="1">
+<Title>Check helm installation status</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<Active>1</Active>
+<OH_SubType/>
+<CustomAttributes KeyListID="0" dataRequestID="0"/>
+</XHEADER>
+<OUTPUTREG state="1">
+<FileReg/>
+</OUTPUTREG>
+<SYNCREF state="1">
+<Syncs/>
+</SYNCREF>
+<ATTR_JOBS state="1">
+<Queue>CLIENT_QUEUE</Queue>
+<StartType/>
+<HostDst>|&lt;GENERIC&gt;|HOST</HostDst>
+<HostATTR_Type>GENERIC</HostATTR_Type>
+<CodeName/>
+<Login/>
+<IntAccount/>
+<ExtRepDef>1</ExtRepDef>
+<ExtRepAll>0</ExtRepAll>
+<ExtRepNone>0</ExtRepNone>
+<AutoDeactNo>0</AutoDeactNo>
+<AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
+<AutoDeactErrorFree>0</AutoDeactErrorFree>
+<DeactWhen/>
+<DeactDelay>0</DeactDelay>
+<AutoDeactAlways>1</AutoDeactAlways>
+<AttDialog>1</AttDialog>
+<ActAtRun>1</ActAtRun>
+<Consumption>0</Consumption>
+<UC4Priority>0</UC4Priority>
+<MaxParallel2>0</MaxParallel2>
+<MpElse1>1</MpElse1>
+<MpElse2>0</MpElse2>
+<TZ/>
+</ATTR_JOBS>
+<RUNTIME state="1">
+<MaxRetCode>0</MaxRetCode>
+<MrcExecute/>
+<MrcElseE>0</MrcElseE>
+<FcstStatus>0| |</FcstStatus>
+
+<ErtMethodDef>1</ErtMethodDef>
+<ErtMethodFix>0</ErtMethodFix>
+<ErtFix>0</ErtFix>
+<ErtDynMethod>2|Average</ErtDynMethod>
+<ErtMethodDyn>0</ErtMethodDyn>
+<ErtCnt>0</ErtCnt>
+<ErtCorr>0</ErtCorr>
+<ErtIgn>0</ErtIgn>
+<ErtIgnFlg>0</ErtIgnFlg>
+<ErtMinCnt>0</ErtMinCnt>
+<MrtMethodNone>1</MrtMethodNone>
+<MrtMethodFix>0</MrtMethodFix>
+<MrtFix>0</MrtFix>
+<MrtMethodErt>0</MrtMethodErt>
+<MrtErt>0</MrtErt>
+<MrtMethodDate>0</MrtMethodDate>
+<MrtDays>0</MrtDays>
+<MrtTime>00:00</MrtTime>
+<MrtTZ/>
+<SrtMethodNone>1</SrtMethodNone>
+<SrtMethodFix>0</SrtMethodFix>
+<SrtFix>0</SrtFix>
+<SrtMethodErt>0</SrtMethodErt>
+<SrtErt>0</SrtErt>
+<MrtCancel>0</MrtCancel>
+<MrtExecute>0</MrtExecute>
+<MrtExecuteObj/>
+</RUNTIME>
+<DYNVALUES state="1">
+<dyntree>
+<node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
+<VALUE state="1">
+<Values/>
+<Mode>0</Mode>
+</VALUE>
+</node>
+<node content="1" id="PCK.AUTOMIC_HELM.PRV.PROMPTSET.CHECK_STATUS" name="PCK.AUTOMIC_HELM.PRV.PROMPTSET.CHECK_STATUS" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_HELM.PRV.PROMPTSET.CHECK_STATUS" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_HELM.PRV.PROMPTSET.CHECK_STATUS" prptmode="1">
+<UC4RB_HELM_RES_KINDs.00 altview="0" haslist="0"/>
+<UC4RB_HELM_RES_NAME_FILTERs.00 altview="0" haslist="0"/>
+</PRPTBOX>
+</PROMPTSET>
+</node>
+</dyntree>
+</DYNVALUES>
+<ROLLBACK state="1">
+<RollbackFlag>0</RollbackFlag>
+<CBackupObj/>
+<CRollbackObj/>
+<FBackupPath/>
+<FDeleteBefore>0</FDeleteBefore>
+<FInclSubDirs>0</FInclSubDirs>
+</ROLLBACK>
+<PRE_SCRIPT mode="1" replacementmode="1" state="1">
+<PSCRI><![CDATA[:INCLUDE PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
+</PRE_SCRIPT>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[!: INC PCK.AUTOMIC_BOND.PUB.INCLUDE.ECHO_ON_OFF
+: INC PCK.AUTOMIC.HELM.INCLUDE.ECHO_OFF
+: DEFINE &STRING_ARR#, string, 30
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+!-------------------------------------Logging input parameters-------------------------------------------------------------------------------------------------
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.PARAM_VALIDATION
+: SET &UC4RB_LOGGING_PARAMETER# = "Helm release name"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_HELM_RLS_NAME#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Kubernetes Resource Kind"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_HELM_RES_KIND#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Resource items filter"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_HELM_RES_NAME_FILTER#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Resource status column index"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_HELM_RES_STATUS_COLUMN#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+: SET &UC4RB_LOGGING_PARAMETER# = "Additional flags"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = "&UC4RB_HELM_ADDITIONAL_FLAGS#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+:SET &UC4RB_HELM_CMD# = 'helm'
+:SET &UC4RB_HELM_CMD# = "&UC4RB_HELM_CMD# status &UC4RB_HELM_RLS_NAME# &UC4RB_HELM_ADDITIONAL_FLAGS# && helm get manifest &UC4RB_HELM_RLS_NAME# | kubectl get -f -"
+
+! Invoking helm status
+&UC4RB_HELM_CMD#
+:PRINT "execute command: &UC4RB_HELM_CMD#"
+
+! Status messages
+:SET &UC4RB_LOGGING_INFO# = "******** INSPECT ACTION EXECUTED SUCCESSFULLY ********"
+:SET &UC4RB_LOGGING_ERROR# = "******** INSPECT ACTION FAILED ********"
+
+!----Check job status----
+:INC PCK.AUTOMIC_HELM.PUB.INCLUDE.CHECK_JOBSTATUS
+:SWITCH &$PLATFORM#
+:CASE "UNIX"
+     exit 0
+:OTHER
+:ENDSWITCH
+
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER
+]]></MSCRI>
+</SCRIPT>
+<OUTPUTSCAN state="1">
+<Inherit>N</Inherit>
+<filterobjects>
+<row Icon="FILTER" condition="true" execute="" filter="PCK.AUTOMIC_HELM.PUB.FILTER" lnr="1" return="9" statustext=""/>
+</filterobjects>
+<HostFsc/>
+<LoginFsc/>
+</OUTPUTSCAN>
+<POST_SCRIPT mode="1" replacementmode="1" state="1">
+<OSCRI><![CDATA[:SET &NOT_FOUND_MSG# = STR_CAT("release: """, &UC4RB_HELM_RLS_NAME#)
+:SET &NOT_FOUND_MSG# = STR_CAT(&NOT_FOUND_MSG#,""" not found")
+
+:SET &FILTER# = &UC4RB_HELM_RES_NAME_FILTER#
+:SET &RES_KIND# = &UC4RB_HELM_RES_KIND#
+:SET &COL# = CONVERT(unsigned, &UC4RB_HELM_RES_STATUS_COLUMN#)
+:DEFINE &ARRAYS#, string, 10
+
+:SET &RlS_STATUS# = ""
+:SET &RlS_DEPLOYED# = ""
+:SET &RLS_NAMESPACE# = ""
+:SET &RES_STATUS# = ""
+
+:SET &HND# = PREP_PROCESS_REPORT()
+
+:PROCESS &HND#
+:  SET &LINE# = GET_PROCESS_LINE(&HND#)
+:  SET &NOT_FOUND# = STR_FIND(&LINE#,&NOT_FOUND_MSG#)
+:  IF &NOT_FOUND# > 0
+:    PSET &RlS_STATUS# = "NOT_FOUND"
+:    TERM_PROCESS
+:  ENDIF
+
+:  SET &CHECK_DEPLOYED# = STR_STARTS_WITH(&LINE#,"LAST DEPLOYED:")
+:  IF &CHECK_DEPLOYED# = "Y"
+:    SET &RlS_DEPLOYED# = SUBSTR(&LINE#,15)
+:    SET &RlS_DEPLOYED# = STR_TRIM(&RlS_DEPLOYED#)
+:  ENDIF
+
+:  SET &CHECK_NAMESPACE# = STR_STARTS_WITH(&LINE#,"NAMESPACE:")
+:  IF &CHECK_NAMESPACE# = "Y"
+:    PSET &RLS_NAMESPACE# = SUBSTR(&LINE#,11)
+:    PSET &RLS_NAMESPACE# = STR_TRIM(&RLS_NAMESPACE#)
+:  ENDIF
+
+:  SET &STATUS# = STR_STARTS_WITH(&LINE#,"STATUS:")
+:  IF &STATUS# = "Y"
+:    PSET &RLS_STATUS# = SUBSTR(&LINE#,8)
+:    PSET &RLS_STATUS# = STR_TRIM(&RLS_STATUS#):
+:  ENDIF
+
+!   Found resource section, switch to FOUND
+:   SET &CHECK_KIND# = STR_STARTS_WITH(&LINE#, "&RES_KIND#")
+:   IF &CHECK_KIND# = "Y"
+:     SET &SUBSTR_INDEX# = STR_FIND(&LINE# , "/")
+:     SET &SUBSTR_INDEX# = &SUBSTR_INDEX# + 1
+:     SET &RLS_STRING# = SUBSTR(&LINE# , &SUBSTR_INDEX#);
+:     SET &MATCH# = STR_MATCH(&RLS_STRING#, &FILTER#)
+:     IF &MATCH# = "Y"
+:       SET &UC4RB_CONVERTED_STRING# = &RLS_STRING#
+:       INC PCK.AUTOMIC_HELM.INCLUDE.CONVERT_COLUMN_DELIMITER
+:       FILL &ARRAYS#[] = STR_SPLIT(&UC4RB_CONVERTED_STRING#,'|')
+:       PSET &RES_STATUS# = STR_CAT(&RES_STATUS#, &ARRAYS#[&COL#])
+:       PSET &RES_STATUS# = STR_CAT(&RES_STATUS#, ";")
+:       TERM_PROCESS
+:     ENDIF
+:   ENDIF
+
+:ENDPROCESS
+
+:CLOSE_PROCESS &HND#
+
+! Return to parent
+:PSET &UC4RB_HELM_RLS_LAST_DEPLOYED# = &RlS_DEPLOYED#
+:PSET &UC4RB_HELM_RLS_STATUS# = &RlS_STATUS#
+:PSET &UC4RB_HELM_RLS_NAMESPACE# = &RLS_NAMESPACE#
+:PSET &UC4RB_HELM_RES_STATUS# = &RES_STATUS#
+]]></OSCRI>
+</POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBS_GENERIC>
+</uc-export>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_HELM.INCLUDE.CONVERT_COLUMN_DELIMITER">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:SET &REMAIN# = STR_TRIM(&UC4RB_CONVERTED_STRING#)
+:SET &REMAIN# = STR_CAT(&REMAIN#, "  ")
+:SET &UC4RB_CONVERTED_STRING# = ""
+:SET &POS# = STR_FIND(&REMAIN#, "  ")
+:WHILE &POS# > 0
+:  SET &COL_VALUE# = STR_CUT(&REMAIN#, 1, &POS#)
+:  SET &COL_VALUE# = STR_RTRIM(&COL_VALUE#)
+:  SET &REMAIN# = STR_CUT(&REMAIN#, &POS#)
+:  SET &REMAIN# = STR_LTRIM(&REMAIN#)
+:  SET &UC4RB_CONVERTED_STRING# = STR_CAT(&UC4RB_CONVERTED_STRING#, &COL_VALUE#)
+:  SET &UC4RB_CONVERTED_STRING# = STR_CAT(&UC4RB_CONVERTED_STRING#, '|')
+:  SET &POS# = STR_FIND(&REMAIN#, "  ")
+:ENDWHILE
+]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

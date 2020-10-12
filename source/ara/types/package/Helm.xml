@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageType baseType="Deployment">
+  <Name>Helm</Name>
+  <Workflow>
+    <States initialState="Active">
+      <State name="Active" isClosingState="true"></State>
+    </States>
+    <Milestones></Milestones>
+  </Workflow>
+  <Properties>
+    <Group name="helm_release" displayName="Helm Release">
+      <Property name="release_name" displayName="Release Name" mode="EDITABLE" type="SingleLineText"></Property>
+	  <Property name="chart_location" displayName="Chart Location" mode="EDITABLE" type="SingleLineText"></Property>
+    </Group>
+  </Properties>
+</PackageType>

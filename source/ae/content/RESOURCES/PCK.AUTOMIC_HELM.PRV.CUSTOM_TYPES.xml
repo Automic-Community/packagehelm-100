@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<STORE name="PCK.AUTOMIC_HELM.PRV.CUSTOM_TYPES">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<STORE>
+<HostType/>
+<resourceList>
+<row checksum="60E2FE5839D02FAE3BEEF0FDA996BE5E5E55E6AED94FF873FC2AE52E1A1C428B" fileType="TEXT" filename="Container.xml" hw="*" id="COMPONENT#CONTAINER#2-ALL-ALL-ALL" name="COMPONENT#CONTAINER#2" platform="*" resname="PCK.AUTOMIC_HELM.PRV.CUSTOM_TYPES-COMPONENT#CONTAINER#2-ALL-ALL-ALL" size="673" sw="*" type="3" version="1.0.0"/>
+<row checksum="AC74935A4B1495B5E44D002247AC00CFD17BE92BF7D78BA8DC52188F4BF19A51" fileType="TEXT" filename="Tomcat.xml" hw="*" id="DEPLOYMENTTARGET#CONTAINER#1-ALL-ALL-ALL" name="DEPLOYMENTTARGET#CONTAINER#1" platform="*" resname="PCK.AUTOMIC_HELM.PRV.CUSTOM_TYPES-DEPLOYMENTTARGET#CONTAINER#1-ALL-ALL-ALL" size="1259" sw="*" type="3" version="1.0.0"/>
+</resourceList>
+</STORE>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</STORE>
+</uc-export>

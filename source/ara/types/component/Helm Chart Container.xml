@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ComponentType baseType="Nested">
+  <Name>Helm Chart Container</Name>
+  <Properties></Properties>
+  <DynamicProperties>
+    <Property name="/flags" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+      <Description></Description>
+      <Value>--name {system/name}</Value>
+    </Property>
+    <Property name="/chart" protected="false" highlighted="false" type="SingleLineText" allowCustomValues="false">
+      <Description></Description>
+      <Value></Value>
+    </Property>
+  </DynamicProperties>
+</ComponentType>

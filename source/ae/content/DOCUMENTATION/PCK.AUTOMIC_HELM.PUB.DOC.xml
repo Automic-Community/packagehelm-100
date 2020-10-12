@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_HELM.PUB.DOC">
+<HEADER state="1">
+<Title>Pack Documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About Automic's Helm Package
+================================
+
+This package contains actions that interact with Helm. The needed Helm CLI is not included in this package.
+
+The available actions are Deploy and Check status of the given release.
+
+=Supported versions=
+HELM 3
+
+]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>
